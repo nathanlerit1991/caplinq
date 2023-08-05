@@ -23,6 +23,44 @@ input {
   border: solid 1px $BORDER_COLOR;
 }
 
+select {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+select.one_item {
+  border-bottom: solid 1px $BORDER_COLOR;
+  border-left: solid 1px $BORDER_COLOR;
+  border-right: solid 1px $BORDER_COLOR;
+  padding: 10px;
+}
+option {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: solid 1px $BORDER_COLOR;
+  border-left: solid 1px $BORDER_COLOR;
+  border-right: solid 1px $BORDER_COLOR;
+  &:first-child {
+    border-top: solid 1px $BORDER_COLOR;
+  }
+  &:last-child {
+    display: none;
+  }
+
+  &:before {
+    position: absolute;
+    right: 0;
+    content:'►';
+  }
+}
+option:hover {
+  background: #308ef8;
+}
+option:checked {
+  box-shadow: 0 0 10px 100px #e2f1fe inset;
+}
+
 details {
   border-top: solid 1px $BORDER_COLOR;
   border-bottom: solid 1px $BORDER_COLOR;

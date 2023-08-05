@@ -16,7 +16,7 @@
       <div class="truncate-text">
         <p>508mm (20") wide x 33m asdsad sad sa dsa das das das das das dasdasd sadasdasdasdasdasd sad as das das das das da as dasd</p>
       </div>
-      <input type="text" />
+      <input type="text" placeholder="1" />
     </div>
   </details>
 </template>

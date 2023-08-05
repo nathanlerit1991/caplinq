@@ -23,14 +23,22 @@ const searchItem = computed(() => {
         type="text" placeholder="Search products"
         v-model="searchData"
       />
-      <div class="supplier-list">
+      <select :size="searchItem.length + 1" autofocus>
+        <option 
+          v-for="(list, list_index) in searchItem" :key="list_index"
+          @click="s_supplies_data.selectProdFn(list.name)">
+          {{list.name}}
+        </option>
+        <option />
+      </select>
+      <!-- <div class="supplier-list">
         <label 
           v-for="(list, list_index) in searchItem" :key="list_index"
           @click="s_supplies_data.selectProdFn(list.name)"
         >
           {{list.name}}
         </label>
-      </div>
+      </div> -->
       <AccordionSupplier />
     </div>
     <div class="modal-footer">
@@ -80,16 +88,20 @@ const searchItem = computed(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
 
-.supplier-list label {
-  display: block;
-  padding: 5px;
-  cursor: pointer;
-
-  &:hover {
-    background: #308ef8;
-    color: #fff;
+  > div > button {
+    margin-left: 10px;
   }
 }
+
+// .supplier-list label {
+//   display: block;
+//   padding: 5px;
+//   cursor: pointer;
+
+//   &:hover {
+//     background: #308ef8;
+//     color: #fff;
+//   }
+// }
 </style>
