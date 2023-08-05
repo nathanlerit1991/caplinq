@@ -1,0 +1,20 @@
+{
+  "supplier_list": [
+    {
+      "id": 1,
+      "name": "Iphone 14 pro max"
+    },
+    {
+      "id": 2,
+      "name": "Samsung S21"
+    },
+    {
+      "id": 3,
+      "name": "Huawei P20"
+    },
+    {
+      "id": 4,
+      "name": "Nokia 3210"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+html * {
+  box-sizing: border-box;
+}
+
+button {
+  border: solid 1px $BTN_PRIMARY_COLOR;
+  padding: 12px 24px;
+  border-radius: $BTN_BORDER_RADIUS;
+  text-transform: uppercase;
+}
+button.primary {
+  color: $BTN_PRIMARY_COLOR;
+}
+
+button[disabled] {
+  background: $BTN_DISABLE_BG;
+  color: $BTN_DISABLED_COLOR;
+}
+input {
+  padding: 12px;
+  width: 100%;
+  border-radius: $BTN_BORDER_RADIUS;
+  border: solid 1px $BORDER_COLOR;
+}
+
+details {
+  border-top: solid 1px $BORDER_COLOR;
+  border-bottom: solid 1px $BORDER_COLOR;
+}
+
+
+.product-select {
+  padding: 12px 24px;
+  border: solid 1px $BORDER_COLOR;
+  color: $TXT_SECONDARY_COLOR;
+  border-radius: $BTN_BORDER_RADIUS;
+  p {
+    margin: 0;
+  }
+}
