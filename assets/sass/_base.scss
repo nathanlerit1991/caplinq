@@ -1,5 +1,6 @@
 html * {
   box-sizing: border-box;
+  font-family: Segoe UI;
 }
 
 button {
@@ -7,6 +8,8 @@ button {
   padding: 12px 24px;
   border-radius: $BTN_BORDER_RADIUS;
   text-transform: uppercase;
+  cursor: pointer;
+  font-size: $TXT_MEDIUM_SIZE;
 }
 button.primary {
   color: $BTN_PRIMARY_COLOR;
@@ -15,6 +18,7 @@ button.primary {
 button[disabled] {
   background: $BTN_DISABLE_BG;
   color: $BTN_DISABLED_COLOR;
+  cursor: not-allowed;
 }
 input {
   padding: 12px;
@@ -23,29 +27,27 @@ input {
   border: solid 1px $BORDER_COLOR;
 }
 
+
+
 select {
   width: 100%;
   border: none;
   outline: none;
 }
-select.one_item {
-  border-bottom: solid 1px $BORDER_COLOR;
-  border-left: solid 1px $BORDER_COLOR;
-  border-right: solid 1px $BORDER_COLOR;
-  padding: 10px;
-}
+
+.supplier-list label,
 option {
+  display: block;
   position: relative;
   padding: 10px;
   cursor: pointer;
   border-bottom: solid 1px $BORDER_COLOR;
   border-left: solid 1px $BORDER_COLOR;
   border-right: solid 1px $BORDER_COLOR;
+  font-size: $TXT_SMALL_SIZE;
+  color: $TXT_PRIMARY_COLOR;
   &:first-child {
     border-top: solid 1px $BORDER_COLOR;
-  }
-  &:last-child {
-    display: none;
   }
 
   &:before {
@@ -54,8 +56,10 @@ option {
     content:'►';
   }
 }
+.supplier-list label:hover,
 option:hover {
   background: #308ef8;
+  color: #fff;
 }
 option:checked {
   box-shadow: 0 0 10px 100px #e2f1fe inset;
@@ -65,6 +69,27 @@ details {
   border-top: solid 1px $BORDER_COLOR;
   border-bottom: solid 1px $BORDER_COLOR;
 }
+summary {
+  font-size: $TXT_SMALL_SIZE;
+  line-height: 16px;
+  color: $TXT_PRIMARY_COLOR;
+}
+.supplier-details--list {
+  padding: 20px;
+  border-top: solid 1px $BORDER_COLOR;
+  border-bottom: solid 1px $BORDER_COLOR;
+  p{
+    font-size: $TXT_SMALL_SIZE;
+    line-height: 16px;
+    color: $TXT_PRIMARY_COLOR;
+    margin: 0;
+  }
+  small {
+    font-size: $TXT_XSMALL_SIZE;
+    color: $TXT_TERTIARY_COLOR;
+    line-height: 16px;
+  }
+}
 
 
 .product-select {
@@ -72,6 +97,7 @@ details {
   border: solid 1px $BORDER_COLOR;
   color: $TXT_SECONDARY_COLOR;
   border-radius: $BTN_BORDER_RADIUS;
+  font-size: $TXT_SMALL_SIZE;
   p {
     margin: 0;
   }

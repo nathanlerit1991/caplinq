@@ -2,19 +2,19 @@
   "supplier_list": [
     {
       "id": 1,
-      "name": "Iphone 14 pro max"
+      "name": "AC&C"
     },
     {
       "id": 2,
-      "name": "Samsung S21"
+      "name": "Aculon, Inc."
     },
     {
       "id": 3,
-      "name": "Huawei P20"
+      "name": "Anhui Lixing"
     },
     {
       "id": 4,
-      "name": "Nokia 3210"
+      "name": "Astecs"
     }
   ]
 }

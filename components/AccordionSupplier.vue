@@ -14,7 +14,8 @@
     <div class="supplier-details--list">
       <input type="checkbox" />
       <div class="truncate-text">
-        <p>508mm (20") wide x 33m asdsad sad sa dsa das das das das das dasdasd sadasdasdasdasdasd sad as das das das das da as dasd</p>
+        <p>508mm (20") wide x 33m (36yd) long with release liner | (Tolerance is ± 0 asdsadas das das dadas dasas da dasdad</p>
+        <small>SKU: PIT3S-T-RL/508 </small>
       </div>
       <input type="text" placeholder="1" />
     </div>
@@ -36,9 +37,10 @@ details[open] summary {
 
 summary {
   position: relative;
-  padding: 10px 0;
+  padding: 20px 0;
   display: flex;
   align-items: center;
+  grid-gap: 20px;
   cursor: pointer;
   transition: margin 150ms ease-out;
 }
@@ -54,6 +56,7 @@ details[open] summary:before {
 .supplier-details--list {
   display: flex;
   align-items: center;
+  grid-gap: 20px;
 }
 .supplier-details--list > * {
   flex-grow: 1;
@@ -64,14 +67,15 @@ details[open] summary:before {
 .supplier-details--list .truncate-text {
   white-space: nowrap;
   overflow: hidden;
-  min-width: 370px;
+  max-width: 470px;
+  width: 100%;
 }
 .supplier-details--list .truncate-text p{
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .supplier-details--list input:last-child {
-  max-width: 100px;
+  max-width: 68px;
   max-height: 20px;
 }
 </style>

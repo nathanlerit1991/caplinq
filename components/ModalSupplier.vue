@@ -23,13 +23,21 @@ const searchItem = computed(() => {
         type="text" placeholder="Search products"
         v-model="searchData"
       />
-      <select :size="searchItem.length + 1" autofocus>
+      <div 
+        v-if="searchItem.length === 1" 
+        class="supplier-list">
+        <label
+            v-for="(list, list_index) in searchItem" :key="list_index"
+            @click="s_supplies_data.selectProdFn(list.name)"
+          >{{list.name}}
+        </label>
+      </div>
+      <select v-if="searchItem.length > 1" :size="searchItem.length" autofocus>
         <option 
           v-for="(list, list_index) in searchItem" :key="list_index"
           @click="s_supplies_data.selectProdFn(list.name)">
           {{list.name}}
         </option>
-        <option />
       </select>
       <!-- <div class="supplier-list">
         <label 
@@ -70,6 +78,10 @@ const searchItem = computed(() => {
 .modal .modal-body {
   padding: 40px;
 }
+.supplier-list,
+.modal-body select {
+  margin-top: 24px;
+}
 
 .modal .modal-header {
   padding: 40px 40px 0 40px;
@@ -77,7 +89,6 @@ const searchItem = computed(() => {
     color: #7b7b7b;
     font-size: 20px;
     font-weight: 400;
-    font-family: Segoe UI;
     margin: 0;
     text-align: center;
   }
