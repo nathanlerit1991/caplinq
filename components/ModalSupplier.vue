@@ -6,12 +6,10 @@ import SUPPLIER_JSON from "@/content/supplier.json";
 import { s_supplies } from '@/stores/supplies'
 let s_supplies_data = s_supplies()
 
-const searchData = ref("")
-const searchItem = computed(() => {
-  return SUPPLIER_JSON.supplier_list.filter((item) => {
-    return item.name.toLowerCase().includes(searchData.value.toLowerCase())
-  });
-});
+const supplierList = ref(SUPPLIER_JSON.supplier_list);
+const supplierNames = ref(supplierList.value.map(supplier => supplier.name));
+
+
 </script>
 <template>
   <div class="modal">
@@ -22,27 +20,11 @@ const searchItem = computed(() => {
       <h2 v-html="s_supplies_data.s_product_selected === '' ? 'Browse' : s_supplies_data.s_product_selected" />
     </header>
     <div class="modal-body">
-      <input
-        class="search"
-        type="text" placeholder="Search products"
-        v-model="searchData"
-      />
-      <div 
-        v-if="searchItem.length === 1" 
-        class="supplier-list">
-        <label
-            v-for="(list, list_index) in searchItem" :key="list_index"
-            @click="s_supplies_data.selectProdFn(list.name)"
-          >{{list.name}}
-        </label>
-      </div>
-      <select v-if="searchItem.length > 1" :size="searchItem.length" autofocus>
-        <option 
-          v-for="(list, list_index) in searchItem" :key="list_index"
-          @click="s_supplies_data.selectProdFn(list.name)">
-          {{list.name}}
-        </option>
-      </select>
+      <v-combobox
+        label="Combobox"
+        :items="supplierNames"
+        variant="outlined"
+      ></v-combobox>
       <AccordionSupplier />
     </div>
     <div class="modal-footer">
