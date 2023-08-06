@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Segoe UI";
+  src: url("@/assets/fonts/segoe/Segoe.ttf") format("truetype");
+}
+
 html * {
   box-sizing: border-box;
   font-family: Segoe UI;
@@ -13,6 +18,7 @@ button {
 }
 button.primary {
   color: $BTN_PRIMARY_COLOR;
+  background: #fff;
 }
 
 button[disabled] {
@@ -28,7 +34,12 @@ input {
 }
 
 
-
+.search {
+  background: url("@/assets/img/search.svg") no-repeat;
+  background-size: 20px 20px;
+  background-position: 10px center;
+  padding-left: 40px;
+}
 select {
   width: 100%;
   border: none;
@@ -53,7 +64,10 @@ option {
   &:before {
     position: absolute;
     right: 0;
-    content:'►';
+    content:'';
+    background: url("@/assets/img/chevron-right.svg") no-repeat;
+    width: 20px;
+    height: 15px;
   }
 }
 .supplier-list label:hover,
@@ -62,6 +76,7 @@ option:hover {
   color: #fff;
 }
 option:checked {
+  color: $TXT_PRIMARY_COLOR;
   box-shadow: 0 0 10px 100px #e2f1fe inset;
 }
 
@@ -69,12 +84,30 @@ details {
   border-top: solid 1px $BORDER_COLOR;
   border-bottom: solid 1px $BORDER_COLOR;
 }
+details[open],
+details[open] summary {
+  background: $ACCORDION_BG;
+}
+details[open] summary:before {
+  background: url("@/assets/img/chevron-down.svg");
+}
 summary {
   font-size: $TXT_SMALL_SIZE;
   line-height: 16px;
   color: $TXT_PRIMARY_COLOR;
+  grid-gap: $GUTTER_SMALL;
+
+  &:before {
+    position: absolute;
+    content: "";
+    right: 0;
+    background: url("@/assets/img/chevron-right.svg") no-repeat;
+    width: 20px;
+    height: 15px;
+  }
 }
 .supplier-details--list {
+  grid-gap: $GUTTER_SMALL;
   padding: 20px;
   border-top: solid 1px $BORDER_COLOR;
   border-bottom: solid 1px $BORDER_COLOR;

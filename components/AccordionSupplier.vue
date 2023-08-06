@@ -23,40 +23,21 @@
 </template>
 
 <style>
-details {
-  box-sizing: border-box;
-}
-details[open],
-details[open] summary {
-  background: #F5F5F5;
-}
 details[open] summary {
   margin-bottom: 10px;
 }
-
-
 summary {
   position: relative;
   padding: 20px 0;
   display: flex;
   align-items: center;
-  grid-gap: 20px;
   cursor: pointer;
   transition: margin 150ms ease-out;
-}
-summary:before {
-  content:'►';
-  position: absolute;
-  right: 0;
-}
-details[open] summary:before {
-  content:'▼';
 }
 
 .supplier-details--list {
   display: flex;
   align-items: center;
-  grid-gap: 20px;
 }
 .supplier-details--list > * {
   flex-grow: 1;
