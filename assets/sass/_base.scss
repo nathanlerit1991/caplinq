@@ -61,6 +61,27 @@ option {
     border-top: solid 1px $BORDER_COLOR;
   }
 
+  // &:before {
+  //   position: absolute;
+  //   right: 0;
+  //   content:'';
+  //   background: url("@/assets/img/chevron-right.svg") no-repeat;
+  //   width: 20px;
+  //   height: 15px;
+  // }
+}
+// .supplier-list label:hover,
+// option:hover {
+//   background: #308ef8;
+//   color: #fff;
+// }
+
+.v-list-item {
+  .v-list-item__overlay,
+  &:after {
+    display: none;
+  }
+
   &:before {
     position: absolute;
     right: 0;
@@ -69,16 +90,20 @@ option {
     width: 20px;
     height: 15px;
   }
+  &:hover {
+    background: #308ef8;
+    color: #fff;
+  }
+  &:focus-visible {
+    background: #e2f1fe;
+    color: $TXT_PRIMARY_COLOR;
+    border: none;
+  }
 }
-.supplier-list label:hover,
-option:hover {
-  background: #308ef8;
-  color: #fff;
-}
-option:checked {
-  color: $TXT_PRIMARY_COLOR;
-  box-shadow: 0 0 10px 100px #e2f1fe inset;
-}
+// option:checked {
+//   color: $TXT_PRIMARY_COLOR;
+//   box-shadow: 0 0 10px 100px #e2f1fe inset;
+// }
 
 details {
   border-top: solid 1px $BORDER_COLOR;
