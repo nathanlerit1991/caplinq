@@ -26,12 +26,12 @@ button[disabled] {
   color: $BTN_DISABLED_COLOR;
   cursor: not-allowed;
 }
-input {
-  padding: 12px;
-  width: 100%;
-  border-radius: $BTN_BORDER_RADIUS;
-  border: solid 1px $BORDER_COLOR;
-}
+// input {
+//   padding: 12px;
+//   width: 100%;
+//   border-radius: $BTN_BORDER_RADIUS;
+//   border: solid 1px $BORDER_COLOR;
+// }
 
 
 .search {

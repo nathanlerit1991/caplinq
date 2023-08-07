@@ -1,14 +1,19 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, watch } from "vue";
 import SUPPLIER_JSON from "@/content/supplier.json";
 
 //STORE//
 import { s_supplies } from '@/stores/supplies'
 let s_supplies_data = s_supplies()
 
-const supplierList = ref(SUPPLIER_JSON.supplier_list);
-const supplierNames = ref(supplierList.value.map(supplier => supplier.name));
+let selectedData = ref(null)
+const supplierList = ref(SUPPLIER_JSON.supplier_list)
+const supplierNames = ref(supplierList.value.map(supplier => supplier.name))
 
+function selectedProduct(data) {
+  s_supplies_data.s_product_selected = data
+  selectedData = data
+}
 
 </script>
 <template>
@@ -21,10 +26,17 @@ const supplierNames = ref(supplierList.value.map(supplier => supplier.name));
     </header>
     <div class="modal-body">
       <v-combobox
-        label="Combobox"
-        :items="supplierNames"
-        variant="outlined"
-      ></v-combobox>
+          v-model="selectedData"
+          :items="supplierNames"
+          label="Product Search"
+          variant="outlined"
+        >
+          <template v-slot:item="data">
+            <v-list-item @click="selectedProduct(data.item.title)">
+              {{ data.item.title }}
+            </v-list-item>
+          </template>
+        </v-combobox>
       <AccordionSupplier />
     </div>
     <div class="modal-footer">
