@@ -12,6 +12,7 @@ const supplierNames = ref(supplierList.value.map(supplier => supplier.name))
 
 function selectedProduct(data) {
   s_supplies_data.s_product_selected = data
+  s_supplies_data.s_isSelected = true
   selectedData = data
 }
 
@@ -19,13 +20,12 @@ function selectedProduct(data) {
 <template>
   <div class="modal">
     <header class="modal-header">
-      <a href="">
-        <img src="@/assets/img/back-btn.svg"/>
-      </a>
+      <img class="btn-back" @click="s_supplies_data.s_isSelected = false" src="@/assets/img/back-btn.svg"/>
       <h2 v-html="s_supplies_data.s_product_selected === '' ? 'Browse' : s_supplies_data.s_product_selected" />
     </header>
     <div class="modal-body">
       <v-combobox
+          v-if="!s_supplies_data.s_isSelected"
           v-model="selectedData"
           :items="supplierNames"
           label="Product Search"
@@ -75,12 +75,15 @@ function selectedProduct(data) {
 
 .modal .modal-header {
   padding: 40px 40px 0 40px;
+  display: flex;
+  align-items: center;
   h2 {
     color: #7b7b7b;
     font-size: 20px;
     font-weight: 400;
     margin: 0;
     text-align: center;
+    flex-grow: 1;
   }
 }
 

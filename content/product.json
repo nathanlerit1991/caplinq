@@ -1,0 +1,18 @@
+{
+  "poduct": [
+    {
+      "id": 1,
+      "title": "PIT3S-T-RL | 3mil Polymide",
+      "child_product": [
+        {
+          "title": "508mm (20') wide x 33m (36yd) long with release liner | (Tolerance is ± 0 asdsadas das das dadas dasas da dasdad",
+          "sub_title": "SKU: PIT3S-T-RL/508"
+        },
+        {
+          "title": "Naruto",
+          "sub_title": "Uzumaki"
+        }
+      ]
+    }
+  ]
+}

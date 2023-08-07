@@ -5,6 +5,7 @@ export const s_supplies = defineStore({
   state: () => ({ 
     s_product_selected: '',
     s_product_num_selected: 0,
+    s_isSelected: false,
   }),
   actions: {
     selectProdFn(title) {

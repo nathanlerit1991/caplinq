@@ -1,21 +1,28 @@
 <script setup>
+  import PRODUCT_JSON from "@/content/product.json";
   //STORE//
   import { s_supplies } from '@/stores/supplies'
   let s_supplies_data = s_supplies()
 </script>
 
 <template>
-  <details class="supplier-details">
+  <details 
+    class="supplier-details"
+    v-for="(list_prod, list_prod_index) in PRODUCT_JSON.poduct" :key="list_prod_index"
+  >
     <summary>
       <img width="40" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJGo_BDmE1BQXej-UemTXxZG6RkDsA95ZnA&usqp=CAU"/>
-      PIT3S-T-RL | 3mil Polymide
+      {{ list_prod.title }}
     </summary>
 
-    <div class="supplier-details--list">
+    <div 
+      class="supplier-details--list"
+      v-for="(child_prod, child_prod_index) in list_prod.child_product" :key="child_prod_index"
+    >
       <input type="checkbox" />
       <div class="truncate-text">
-        <p>508mm (20") wide x 33m (36yd) long with release liner | (Tolerance is ± 0 asdsadas das das dadas dasas da dasdad</p>
-        <small>SKU: PIT3S-T-RL/508 </small>
+        <p>{{ child_prod.title }}</p>
+        <small>{{ child_prod.sub_title }}</small>
       </div>
       <input type="text" placeholder="1" />
     </div>
