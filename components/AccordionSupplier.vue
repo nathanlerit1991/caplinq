@@ -4,11 +4,10 @@
   import { s_supplies } from '@/stores/supplies'
   let s_supplies_data = s_supplies()
 
-  const isCheckboxChecked = ref(false)
-  const selected = ref("")
+  const checkedState = ref({});
 </script>
 
-<template>
+<template>  
   <v-expansion-panels>
     <v-expansion-panel v-for="(list_prod, list_prod_index) in PRODUCT_JSON.poduct" :key="list_prod_index">
       <template v-slot:title>
@@ -22,8 +21,7 @@
           >
           <v-col md="1">
             <v-checkbox
-              v-model="selected"
-              value="John"
+              v-model="checkedState[child_prod_index]"
             ></v-checkbox>
           </v-col>
           <v-col md="9" class="truncate-text">
@@ -31,7 +29,7 @@
             <small>{{ child_prod.sub_title }}</small>
           </v-col>
           <v-col md="2">
-            <v-text-field variant="outlined" :disabled="!child_prod.selected"></v-text-field>
+            <v-text-field variant="outlined" :disabled="!checkedState[child_prod_index]"></v-text-field>
           </v-col>
         </v-row>
       </template>
@@ -59,9 +57,9 @@ summary {
 .supplier-details--list > * {
   flex-grow: 1;
 }
-.supplier-details--list input {
+/* .supplier-details--list input {
   width: auto;
-}
+} */
 .supplier-details--list .truncate-text {
   white-space: nowrap;
   overflow: hidden;
@@ -72,8 +70,8 @@ summary {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.supplier-details--list input:last-child {
+/* .supplier-details--list input:last-child {
   max-width: 68px;
   max-height: 20px;
-}
+} */
 </style>
