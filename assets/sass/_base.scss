@@ -7,6 +7,9 @@ html * {
   box-sizing: border-box;
   font-family: Segoe UI;
 }
+*[disabled] {
+  cursor: not-allowed;
+}
 
 button {
   border: solid 1px $BTN_PRIMARY_COLOR;
@@ -20,16 +23,13 @@ button.primary {
   color: $BTN_PRIMARY_COLOR;
   background: #fff;
 }
-
 button[disabled] {
   background: $BTN_DISABLE_BG;
   color: $BTN_DISABLED_COLOR;
-  cursor: not-allowed;
 }
 .btn-back {
   cursor: pointer;
 }
-
 
 .search {
   background: url("@/assets/img/search.svg") no-repeat;
@@ -37,41 +37,6 @@ button[disabled] {
   background-position: 10px center;
   padding-left: 40px;
 }
-// select {
-//   width: 100%;
-//   border: none;
-//   outline: none;
-// }
-
-// .supplier-list label,
-// option {
-//   display: block;
-//   position: relative;
-//   padding: 10px;
-//   cursor: pointer;
-//   border-bottom: solid 1px $BORDER_COLOR;
-//   border-left: solid 1px $BORDER_COLOR;
-//   border-right: solid 1px $BORDER_COLOR;
-//   font-size: $TXT_SMALL_SIZE;
-//   color: $TXT_PRIMARY_COLOR;
-//   &:first-child {
-//     border-top: solid 1px $BORDER_COLOR;
-//   }
-
-//   &:before {
-//     position: absolute;
-//     right: 0;
-//     content:'';
-//     background: url("@/assets/img/chevron-right.svg") no-repeat;
-//     width: 20px;
-//     height: 15px;
-//   }
-// }
-// .supplier-list label:hover,
-// option:hover {
-//   background: #308ef8;
-//   color: #fff;
-// }
 
 .v-list-item {
   .v-list-item__overlay,
@@ -97,59 +62,62 @@ button[disabled] {
     color: #fff;
   }
 }
-// option:checked {
-//   color: $TXT_PRIMARY_COLOR;
-//   box-shadow: 0 0 10px 100px #e2f1fe inset;
-// }
 
-details {
-  border-top: solid 1px $BORDER_COLOR;
-  border-bottom: solid 1px $BORDER_COLOR;
-
-  input {
-    padding: 12px;
-    width: 100%;
-    border-radius: $BTN_BORDER_RADIUS;
-    border: solid 1px $BORDER_COLOR;
+//=== ACCORDION ===//
+.v-expansion-panel {
+  .v-expansion-panel-title__overlay {
+    display: none;
   }
-}
-details[open],
-details[open] summary {
-  background: $ACCORDION_BG;
-}
-details[open] summary:before {
-  background: url("@/assets/img/chevron-down.svg");
-}
-summary {
-  font-size: $TXT_SMALL_SIZE;
-  line-height: 16px;
-  color: $TXT_PRIMARY_COLOR;
-  grid-gap: $GUTTER_SMALL;
-
-  &:before {
-    position: absolute;
-    content: "";
-    right: 0;
-    background: url("@/assets/img/chevron-right.svg") no-repeat;
-    width: 20px;
-    height: 15px;
+  .v-expansion-panel__shadow {
+    box-shadow: none;
   }
-}
-.supplier-details--list {
-  grid-gap: $GUTTER_SMALL;
-  padding: 20px;
-  border-top: solid 1px $BORDER_COLOR;
-  border-bottom: solid 1px $BORDER_COLOR;
-  p{
+  .v-expansion-panel-title {
+    border: none;
     font-size: $TXT_SMALL_SIZE;
     line-height: 16px;
     color: $TXT_PRIMARY_COLOR;
-    margin: 0;
+    grid-gap: $GUTTER_SMALL;
+    padding-left: 0;
+    padding-right: 0;
+    &:before {
+      position: absolute;
+      content: "";
+      right: 0;
+      background: url("@/assets/img/chevron-right.svg") no-repeat;
+      width: 20px;
+      height: 15px;
+      opacity: 1;
+    }
   }
-  small {
-    font-size: $TXT_XSMALL_SIZE;
-    color: $TXT_TERTIARY_COLOR;
-    line-height: 16px;
+  .v-expansion-panel-text__wrapper {
+    padding: 0;
+  }
+
+  .supplier-details--list {
+    grid-gap: $GUTTER_SMALL;
+    padding: 20px;
+    margin: 0;
+    border-top: solid 1px $BORDER_COLOR;
+    border-bottom: solid 1px $BORDER_COLOR;
+    p{
+      font-size: $TXT_SMALL_SIZE;
+      line-height: 16px;
+      color: $TXT_PRIMARY_COLOR;
+      margin: 0;
+    }
+    small {
+      font-size: $TXT_XSMALL_SIZE;
+      color: $TXT_TERTIARY_COLOR;
+      line-height: 16px;
+    }
+  }
+  
+}
+.v-expansion-panel--active {
+  background: $ACCORDION_BG;
+
+  .v-expansion-panel-title:before{
+    background: url("@/assets/img/chevron-down.svg") no-repeat;
   }
 }
 

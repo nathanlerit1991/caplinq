@@ -20,7 +20,12 @@ function selectedProduct(data) {
 <template>
   <div class="modal">
     <header class="modal-header">
-      <img class="btn-back" @click="s_supplies_data.s_isSelected = false" src="@/assets/img/back-btn.svg"/>
+      <img
+        v-if="!s_supplies_data.s_product_num_selected === 0"
+        class="btn-back" 
+        @click="s_supplies_data.s_isSelected = false" 
+        src="@/assets/img/back-btn.svg"
+      />
       <h2 v-html="s_supplies_data.s_product_selected === '' ? 'Browse' : s_supplies_data.s_product_selected" />
     </header>
     <div class="modal-body">

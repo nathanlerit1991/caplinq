@@ -3,30 +3,40 @@
   //STORE//
   import { s_supplies } from '@/stores/supplies'
   let s_supplies_data = s_supplies()
+
+  const isCheckboxChecked = ref(false)
+  const selected = ref("")
 </script>
 
 <template>
-  <details 
-    class="supplier-details"
-    v-for="(list_prod, list_prod_index) in PRODUCT_JSON.poduct" :key="list_prod_index"
-  >
-    <summary>
-      <img width="40" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJGo_BDmE1BQXej-UemTXxZG6RkDsA95ZnA&usqp=CAU"/>
-      {{ list_prod.title }}
-    </summary>
-
-    <div 
-      class="supplier-details--list"
-      v-for="(child_prod, child_prod_index) in list_prod.child_product" :key="child_prod_index"
-    >
-      <input type="checkbox" />
-      <div class="truncate-text">
-        <p>{{ child_prod.title }}</p>
-        <small>{{ child_prod.sub_title }}</small>
-      </div>
-      <input type="text" placeholder="1" />
-    </div>
-  </details>
+  <v-expansion-panels>
+    <v-expansion-panel v-for="(list_prod, list_prod_index) in PRODUCT_JSON.poduct" :key="list_prod_index">
+      <template v-slot:title>
+        <img width="40" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROJGo_BDmE1BQXej-UemTXxZG6RkDsA95ZnA&usqp=CAU" alt="img"/>
+        {{ list_prod.title }}
+      </template>
+      <template v-slot:text>
+        <v-row 
+          class="supplier-details--list"
+          v-for="(child_prod, child_prod_index) in list_prod.child_product" :key="child_prod_index"
+          >
+          <v-col md="1">
+            <v-checkbox
+              v-model="selected"
+              value="John"
+            ></v-checkbox>
+          </v-col>
+          <v-col md="9" class="truncate-text">
+            <p>{{ child_prod.title }}</p>
+            <small>{{ child_prod.sub_title }}</small>
+          </v-col>
+          <v-col md="2">
+            <v-text-field variant="outlined" :disabled="!child_prod.selected"></v-text-field>
+          </v-col>
+        </v-row>
+      </template>
+    </v-expansion-panel>
+  </v-expansion-panels>
 </template>
 
 <style>
