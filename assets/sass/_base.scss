@@ -65,6 +65,9 @@ button[disabled] {
 
 //=== ACCORDION ===//
 .v-expansion-panel {
+  border-top: solid 1px $BORDER_COLOR;
+  border-bottom: solid 1px $BORDER_COLOR;
+  
   .v-expansion-panel-title__icon i,
   .v-expansion-panel-title__overlay {
     display: none;
@@ -95,11 +98,15 @@ button[disabled] {
   }
 
   .supplier-details--list {
-    grid-gap: $GUTTER_SMALL;
-    padding: 20px;
+    // padding: 20px;
     margin: 0;
     border-top: solid 1px $BORDER_COLOR;
     border-bottom: solid 1px $BORDER_COLOR;
+    cursor: pointer;
+    > div {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
     p{
       font-size: $TXT_SMALL_SIZE;
       line-height: 16px;
@@ -110,6 +117,9 @@ button[disabled] {
       font-size: $TXT_XSMALL_SIZE;
       color: $TXT_TERTIARY_COLOR;
       line-height: 16px;
+    }
+    &.active {
+      background: #E3F1FE;
     }
   }
   

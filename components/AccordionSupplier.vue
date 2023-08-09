@@ -15,21 +15,28 @@
         {{ list_prod.title }}
       </template>
       <template v-slot:text>
-        <v-row 
+        <v-row
           class="supplier-details--list"
           v-for="(child_prod, child_prod_index) in list_prod.child_product" :key="child_prod_index"
+          :class="checkedState[child_prod_index] ? 'active' : ''"
           >
-          <v-col md="1">
+          <v-col 
+            md="1"
+            @click="checkedState[child_prod_index] = !checkedState[child_prod_index]">
             <v-checkbox
               v-model="checkedState[child_prod_index]"
             ></v-checkbox>
           </v-col>
-          <v-col md="9" class="truncate-text">
+          <v-col 
+            md="9" 
+            class="truncate-text"
+            @click="checkedState[child_prod_index] = !checkedState[child_prod_index]"
+          >
             <p>{{ child_prod.title }}</p>
             <small>{{ child_prod.sub_title }}</small>
           </v-col>
-          <v-col md="2">
-            <v-text-field variant="outlined" :disabled="!checkedState[child_prod_index]"></v-text-field>
+          <v-col md="2" class="amount">
+            <v-text-field height="20px" variant="outlined" :disabled="!checkedState[child_prod_index]"></v-text-field>
           </v-col>
         </v-row>
       </template>
@@ -56,6 +63,7 @@ summary {
 }
 .supplier-details--list > * {
   flex-grow: 1;
+  padding: 0;
 }
 /* .supplier-details--list input {
   width: auto;
@@ -65,6 +73,7 @@ summary {
   overflow: hidden;
   max-width: 470px;
   width: 100%;
+  padding: 0 20px;
 }
 .supplier-details--list .truncate-text p{
   overflow: hidden;

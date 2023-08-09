@@ -66,7 +66,7 @@ function selectedProduct(data) {
   border-radius: 8px;
   border: solid 1px #c4c4c4;
   box-shadow: 2px 2px 3px rgba(0,0,0,.1);
-  width: 600px;
+  width: 751px;
   box-sizing: border-box;
 }
 
