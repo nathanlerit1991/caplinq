@@ -17,7 +17,7 @@ button {
   border-radius: $BTN_BORDER_RADIUS;
   text-transform: uppercase;
   cursor: pointer;
-  font-size: $TXT_MEDIUM_SIZE;
+  font-size: $TXT_SMALL_SIZE;
 }
 button.primary {
   color: $BTN_PRIMARY_COLOR;
@@ -67,7 +67,7 @@ button[disabled] {
 .v-expansion-panel {
   border-top: solid 1px $BORDER_COLOR;
   border-bottom: solid 1px $BORDER_COLOR;
-  
+
   .v-expansion-panel-title__icon i,
   .v-expansion-panel-title__overlay {
     display: none;
